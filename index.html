@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Page</title>
+
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-image: url("https://kpopping.com/documents/ee/4/1200/PLAVE-fullPicture(8).webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: #fff;
+  }
+
+  /* --- Main content --- */
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    z-index: 2;
+    position: relative;
+  }
+
+  .birthday-image {
+    width: 500px;
+    height: auto;
+    margin-bottom: 30px;
+    opacity: 0.9;
+  }
+
+  /* --- Cute music player --- */
+  .cute-player {
+    width: 400px;
+    padding: 30px;
+    background-image: url("https://blog.kakaocdn.net/dn/Biz6A/btsFJH7zlBS/vTzWQPBkIQlSTTjJ3zh8Jk/img.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 30px;
+    border: 4px solid #ff69b4;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    text-align: center;
+    color: #fff;
+    transition: transform 0.2s ease;
+  }
+
+  .cute-player:hover {
+    transform: scale(1.01);
+  }
+
+  .cute-player audio {
+    width: 100%;
+    border-radius: 15px;
+    outline: none;
+    margin-top: 5px;
+    background: linear-gradient(145deg, rgba(80, 80, 80, 0.5), rgba(180, 180, 180, 0.3));
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    padding: 5px;
+  }
+
+.song-details {
+  padding: 6px 0;
+  display: inline-block;
+  background: none;
+  backdrop-filter: none;
+  border-radius: 0;
+}
+
+.song-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+opacity: 0.7;
+ text-shadow:
+    1px 1px 0px #000,
+    2px 2px 0px #000,
+    3px 3px 0px #000;
+}
+
+.song-artist {
+  font-size: 19px;
+  font-style: italic;
+  color: #ffe2f2;
+opacity: 0.9;
+  text-shadow:
+    1px 1px 0px #000,
+    2px 2px 0px #000;
+}
+
+
+/* --- Balloons Wrapper --- */
+.balloons {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1; /* ✅ Behind everything */
+}
+
+/* --- Balloon Style (3D pastel red) --- */
+.balloon {
+  position: absolute;
+  width: 80px;
+  height: 105px;
+  border-radius: 50% 50% 45% 45%;
+  opacity: 0.9;
+
+  /* 3D Gloss Highlight */
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), transparent 65%), var(--balloon-color);
+
+  /* Soft Glow */
+  box-shadow: 0 0 18px rgba(255, 120, 120, 0.35);
+
+  /* Each balloon will use its own movement speed */
+  animation: floatDrift var(--speed) ease-in-out infinite;
+}
+
+/* Balloon string (softer) */
+.balloon::after {
+  content: "";
+  position: absolute;
+  bottom: -55px;
+  left: 50%;
+  width: 1.3px;
+  height: 60px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Movement Animation (smooth drifting) */
+@keyframes floatDrift {
+  0%   { transform: translate(0px, 0px) rotate(0deg); }
+  50%  { transform: translate(var(--x-move), var(--y-move)) rotate(8deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+/* ✅ Each balloon gets:
+   - different pastel red shade
+   - different starting page position
+   - different movement direction + faster motion
+   - different duration
+*/
+
+.balloon:nth-child(1)  { --balloon-color: #ff6f7d; top: 12%; left: 10%; --x-move: 45px;  --y-move: -50px; --tilt: 8deg; --speed: 4.7s; }
+.balloon:nth-child(2)  { --balloon-color: #ff6d84; top: 28%; left: 25%; --x-move: -40px; --y-move: -45px; --tilt: -6deg; --speed: 5.9s; }
+.balloon:nth-child(3)  { --balloon-color: #d8cafe; top: 45%; left: 14%; --x-move: 48px;  --y-move: -62px; --tilt: 7deg; --speed: 4.3s; }
+.balloon:nth-child(4)  { --balloon-color: #c4f8ce; top: 65%; left: 7%;  --x-move: -35px; --y-move: -57px; --tilt: -8deg; --speed: 5.4s; }
+.balloon:nth-child(5)  { --balloon-color: #ffd4b8; top: 80%; left: 19%; --x-move: 52px;  --y-move: -60px; --tilt: 10deg; --speed: 4.9s; }
+
+.balloon:nth-child(6)  { --balloon-color: #ff848b; top: 18%; left: 78%; --x-move: -42px; --y-move: -50px; --tilt: -9deg; --speed: 5.1s; }
+.balloon:nth-child(7)  { --balloon-color: #ff6760; top: 38%; left: 90%; --x-move: 38px;  --y-move: -55px; --tilt: 7deg; --speed: 4.6s; }
+.balloon:nth-child(8)  { --balloon-color: #ff9cc1; top: 52%; left: 72%; --x-move: -47px; --y-move: -52px; --tilt: -6deg; --speed: 6.3s; }
+.balloon:nth-child(9)  { --balloon-color: #d7baff; top: 70%; left: 84%; --x-move: 40px;  --y-move: -66px; --tilt: 9deg; --speed: 4.4s; }
+.balloon:nth-child(10) { --balloon-color: #c1f3db; top: 85%; left: 67%; --x-move: -39px; --y-move: -49px; --tilt: -7deg; --speed: 5.7s; }
+
+
+/* Floating motion (smooth + gentle + faster) */
+@keyframes floatDrift {
+  0%   { transform: translate(0px, 0px) rotate(0deg); }
+  50%  { transform: translate(var(--x-move), var(--y-move)) rotate(var(--tilt)); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+  /* --- Mixer bars --- */
+  .mixer {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    align-items: flex-end;
+    margin-top: 15px;
+    height: 40px;
+    animation-play-state: paused;
+  }
+
+  .mixer-bar {
+    width: 18px;
+    background: linear-gradient(180deg, rgba(255,80,80,0.95), rgba(255,120,120,0.85));
+    border-radius: 3px;
+    animation: mixerUp 1s infinite;
+    box-shadow: 0 0 8px rgba(255,80,80,0.7);
+  }
+
+  .mixer-bar:nth-child(1) { animation-duration: 0.9s; }
+  .mixer-bar:nth-child(2) { animation-duration: 1.1s; }
+  .mixer-bar:nth-child(3) { animation-duration: 0.8s; }
+  .mixer-bar:nth-child(4) { animation-duration: 1.8s; }
+  .mixer-bar:nth-child(5) { animation-duration: 0.7s; }
+  .mixer-bar:nth-child(6) { animation-duration: 0.6s; }
+  .mixer-bar:nth-child(7) { animation-duration: 1s; }
+  .mixer-bar:nth-child(8) { animation-duration: 1.2s; }
+
+  @keyframes mixerUp {
+    0% { height: 10px; }
+    50% { height: 45px; }
+    100% { height: 10px; }
+  }
+
+  /* --- Tabs Navigation --- */
+  .tabs {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family: "Playfair Display", "Times New Roman", serif;
+    color: #fff;
+    border-bottom: 4px solid #ffffff;
+    padding-bottom: 14px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tabs a {
+    display: inline-block;
+    background-color: #ff8a8a;
+    padding: 10px 25px;
+    border-radius: 10px;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 12px;
+    transition: color 0.3s ease;
+    position: relative;
+    border: 2px solid transparent;
+box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.8), 0px 6px 12px rgba(0, 0, 0, 0.25);
+
+  transition: 
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.3s ease;
+  }
+
+.tabs a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -12px; /* gap between tab + line */
+  width: 0%;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.tabs a:hover {
+  transform: translateY(-3px);
+  background-color: pink;
+
+}
+
+.tabs a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.tabs a:active {
+  transform: translateY(2px);
+  box-shadow: 0px 2px 0px rgba(255, 255, 255, 0.6), 0px 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+  .tabs span {
+    font-size: 26px;
+    font-weight: bold;
+  }
+
+  /* --- About Section --- */
+.profile-label {
+  background-color: #ff8a8a;
+  padding: 10px 30px;
+  border-radius: 12px;
+  color: #fff;
+  font-family: "Playfair Display", "Times New Roman", serif;
+  font-size: 26px;
+  font-weight: 600;
+  border: 2px solid #fff;
+  letter-spacing: 1px;
+  margin-top: 45px;
+  margin-bottom: 25px;
+}
+
+.about-details {
+   background: rgba(255, 255, 255, 0.35);
+  padding: 18px 22px;
+  border-radius: 10px;
+  width: fit-content; /* makes panel only as wide as the text inside */
+  margin-left: 20px; /* aligns with your section titles on the left */
+backdrop-filter: blur(4px); /
+}
+
+.section-label {
+  display: block;
+  width: fit-content;
+  margin-left: 10%;
+}
+
+.profile-label:hover {
+  background-color: #ff91a4;
+}
+
+  .about-section {
+    color: #fff;
+    padding: 30px 10%;
+    text-align: left;
+    font-family: "Poppins", "Segoe UI", sans-serif;
+ position: relative;
+  z-index: 2;
+  }
+
+  .about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .about-details ul { list-style: none; padding: 0; margin: 0; }
+
+  .about-details li {
+  margin: 8px 0;
+  font-size: 23px;
+  color: #ffffff;
+  text-align: left;
+
+  /* simple outline text — clean & readable */
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.9);
+}
+
+.about-details .icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  vertical-align: middle;
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+}
+
+.about-details .icon:hover {
+  transform: scale(1.2);
+}
+
+  .about-photo img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 4px solid #fff;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .social-links img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+
+  .social-links img:hover {
+    transform: scale(1.1);
+  }
+
+  /* --- Favorites Section --- */
+#favorites {  text-align: center;  margin-top: 40px;  color: #fff;   z-index: 2;}
+
+
+#favorites h2:hover {  background-color: #ff91a4; }
+
+  .favorites-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+.fav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+  .fav-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    transition: 0.3s;
+  }
+
+  .fav-item img:hover {
+    transform: scale(1.1);
+    border-color: #ff8a8a;
+  }
+
+
+#favorites::after {
+  content: "";
+  display: block;
+  margin: 50px auto 0 auto;
+  width: 80%;
+  height: 4px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+
+
+/* --- Gallery Section --- */
+.section-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  border: 2px solid white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 14px;
+  text-shadow:
+    1px 1px 0px #000,
+    -1px -1px 0px #000,
+    1px -1px 0px #000,
+    -1px 1px 0px #000;
+}
+
+.gallery-img {
+  width: 180px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 2px;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.06);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, auto); /* 3 images side-by-side */
+  gap: 8px; /* smaller spacing */
+  justify-content: center; /* center the whole grid */
+  align-items: center;
+}
+
+
+.gallery-section .gallery-img:hover {
+  transform: scale(1.08);
+  box-shadow: 0px 0px 20px #ffbed9;
+}
+
+/* ✅ Decorative line restored under Gallery */
+#gallery::after {
+  content: "";
+  display: block;
+  margin: 40px auto 0 auto;
+  width: 85%;
+  height: 4px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="balloons">
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+</div>
+
+
+
+
+<div class="content">
+  <img src="bgreetings.png" class="birthday-image">
+
+  <nav class="tabs">
+    <a href="#about">Cha`s Profile</a>
+    <span>|</span>
+    <a href="#gallery">Gallery</a>
+    <span>|</span>
+    <a href="#wishes">Wishes</a>
+  </nav>
+
+  <div class="cute-player">
+    <div class="song-details">
+      <div class="song-title"><b>Happy Birthday To You</b></div>
+      <div class="song-artist">Nayeon</div>
+    </div>
+
+    <div class="mixer">
+      <div class="mixer-bar"></div><div class="mixer-bar"></div><div class="mixer-bar"></div><div class="mixer-bar"></div>
+      <div class="mixer-bar"></div><div class="mixer-bar"></div><div class="mixer-bar"></div><div class="mixer-bar"></div>
+    </div>
+
+    <audio controls loop>
+      <source src="background.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+</div>
+
+<h2 class="profile-label section-label">Profile</h2>
+<section id="about" class="about-section">
+  <div class="about-container">
+
+    <div class="about-details">
+      <ul>
+        <li><strong>Full Name:</strong> Charo Marie Ramos Geronimo</li>
+        <li><strong>Birthday:</strong> December 16, 1994</li>
+        <li><strong>Age:</strong> 31</li>
+        <li><strong>Zodiac Sign:</strong> Sagittarius</li>
+        <li><strong>Chinese Zodiac:</strong> Dragon 🐉</li>
+        <li><strong>Height:</strong> 165 cm</li>
+        <li><strong>Weight:</strong> 50 kg</li>
+        <li><strong>MBTI:</strong> INFJ</li>
+        <li><strong>Nationality:</strong> Filipino 🇵🇭</li>
+<li><strong>Social Links:</strong>
+  <a href="https://www.facebook.com/celestine.phr" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png"></a>
+  <a href="https://www.instagram.com/" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"></a>
+  <a href="https://www.linkedin.com/" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"></a>
+</li>
+      </ul>
+    </div>
+
+    <div class="about-photo">
+      <img src="cha.png">
+    </div>
+
+  
+
+  </div>
+</section>
+
+<section id="favorites">
+<h2 class="profile-label section-label">Favorites</h2>
+
+  <div class="favorites-grid">
+    <div class="fav-item"><img src="green.png"><p>Color</p></div>
+    <div class="fav-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Taylor_Swift_at_the_2023_MTV_Video_Music_Awards_%283%29.png/250px-Taylor_Swift_at_the_2023_MTV_Video_Music_Awards_%283%29.png"><p>Artist</p></div>
+    <div class="fav-item"><img src="series.jpg"><p>Series</p></div>
+    <div class="fav-item"><img src="food.jpg"><p>Food</p></div>
+    <div class="fav-item"><img src="https://cdn.loveandlemons.com/wp/uploads/2023/06/iced-matcha-latte-recipe-580x743.jpg"><p>Drinks</p></div>
+    <div class="fav-item"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2017/8/w300/yELhmJbUwJxp6ddUxQzeFnZy4At.jpg"><p>Song</p></div>
+    <div class="fav-item"><img src="book.jpg"><p>Book</p></div>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2 class="profile-label section-label">Gallery</h2>
+  <div class="gallery-grid">
+    <a href="gallery1.jfif" target="_blank"><img class="gallery-img" src="gallery1.jfif"></a>
+    <a href="gallery2.jfif" target="_blank"><img class="gallery-img" src="gallery2.jfif"></a>
+    <a href="gallery3.jfif" target="_blank"><img class="gallery-img" src="gallery3.jfif"></a>
+    <a href="gallery4.jpg" target="_blank"><img src="gallery4.jpg"></a>
+    <a href="gallery5.jpg" target="_blank"><img src="gallery5.jpg"></a>
+    <a href="gallery6.jpg" target="_blank"><img src="gallery6.jpg"></a>
+  </div>
+</section>
+
+<section id="wishes" style="text-align:center; margin-top:60px; color:white;">
+  <h2 class="section-label">Wishes</h2>
+
+  <div style="margin:20px auto; max-width:600px;">
+
+    <input id="wishName" type="text" placeholder="Your Name..."
+      style="width:100%; padding:12px; border-radius:10px; border:none; font-size:18px; outline:none; margin-bottom:10px;">
+
+    <textarea id="wishInput" placeholder="Write your birthday wish..."
+      style="width:100%; height:90px; padding:12px; border-radius:10px; border:none; font-size:18px; outline:none;">
+    </textarea>
+
+    <button id="sendWish" 
+      style="margin-top:12px; padding:10px 25px; background-color:#ff8a8a; border:2px solid #fff; border-radius:8px; color:white; font-size:18px; cursor:pointer;">
+      Send Wish 🎀
+    </button>
+  </div>
+
+  <ul id="wishList" style="list-style:none; padding:0; margin-top:30px; max-width:600px; margin-left:auto; margin-right:auto; text-align:left;"></ul>
+</section>
+
+
+<script>
+const audio = document.querySelector("audio");
+const bars = document.querySelectorAll(".mixer-bar");
+
+audio.addEventListener("play", () => bars.forEach(b => b.style.animationPlayState = "running"));
+audio.addEventListener("pause", () => bars.forEach(b => b.style.animationPlayState = "paused"));
+</script>
+
+<script>
+const wishName = document.getElementById("wishName");
+const wishInput = document.getElementById("wishInput");
+const sendWish = document.getElementById("sendWish");
+const wishList = document.getElementById("wishList");
+
+// Load saved wishes
+let wishes = JSON.parse(localStorage.getItem("birthdayWishes")) || [];
+renderWishes();
+
+sendWish.addEventListener("click", () => {
+  const name = wishName.value.trim();
+  const message = wishInput.value.trim();
+
+  if (name === "" || message === "") return;
+
+  wishes.push({ name, message });
+  localStorage.setItem("birthdayWishes", JSON.stringify(wishes));
+
+  wishName.value = "";
+  wishInput.value = "";
+  renderWishes();
+});
+
+function renderWishes() {
+  wishList.innerHTML = "";
+
+  wishes.forEach((entry, index) => {
+    let li = document.createElement("li");
+    li.style.margin = "12px 0";
+    li.style.fontSize = "20px";
+    li.style.display = "flex";
+    li.style.alignItems = "center";
+    li.style.justifyContent = "space-between";
+    li.style.textShadow = "2px 2px 4px rgba(0,0,0,0.9)";
+
+    let text = document.createElement("span");
+    text.textContent = `${entry.name}: ${entry.message}`;
+
+    // Delete button
+    let delBtn = document.createElement("button");
+    delBtn.textContent = "×";
+    delBtn.style.marginLeft = "15px";
+    delBtn.style.background = "#ff6b6b";
+    delBtn.style.border = "none";
+    delBtn.style.color = "white";
+    delBtn.style.fontSize = "18px";
+    delBtn.style.padding = "4px 10px";
+    delBtn.style.borderRadius = "6px";
+    delBtn.style.cursor = "pointer";
+    delBtn.style.boxShadow = "0px 2px 6px rgba(0,0,0,0.3)";
+    delBtn.addEventListener("click", () => {
+      wishes.splice(index, 1);
+      localStorage.setItem("birthdayWishes", JSON.stringify(wishes));
+      renderWishes();
+    });
+
+    li.appendChild(text);
+    li.appendChild(delBtn);
+    wishList.appendChild(li);
+  });
+}
+</script>
+
+</body>
+</html
