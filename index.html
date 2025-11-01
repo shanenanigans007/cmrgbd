@@ -148,14 +148,6 @@ opacity: 0.9;
   50%  { transform: translate(var(--x-move), var(--y-move)) rotate(8deg); }
   100% { transform: translate(0px, 0px) rotate(0deg); }
 }
-
-/* ✅ Each balloon gets:
-   - different pastel red shade
-   - different starting page position
-   - different movement direction + faster motion
-   - different duration
-*/
-
 .balloon:nth-child(1)  { --balloon-color: #ff6f7d; top: 12%; left: 10%; --x-move: 45px;  --y-move: -50px; --tilt: 8deg; --speed: 4.7s; }
 .balloon:nth-child(2)  { --balloon-color: #ff6d84; top: 28%; left: 25%; --x-move: -40px; --y-move: -45px; --tilt: -6deg; --speed: 5.9s; }
 .balloon:nth-child(3)  { --balloon-color: #d8cafe; top: 45%; left: 14%; --x-move: 48px;  --y-move: -62px; --tilt: 7deg; --speed: 4.3s; }
@@ -278,6 +270,10 @@ box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.8), 0px 6px 12px rgba(0, 0, 0, 0.2
     font-size: 26px;
     font-weight: bold;
   }
+
+  :target {
+  scroll-margin-top: 120px;
+}
 
   /* --- About Section --- */
 .profile-label {
@@ -709,6 +705,7 @@ function renderWishes() {
 </body>
 
 </html>
+
 
 
 
