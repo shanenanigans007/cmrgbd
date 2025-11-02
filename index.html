@@ -297,6 +297,10 @@ box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.8), 0px 6px 12px rgba(0, 0, 0, 0.2
   scroll-margin-top: 0px;
 }
 
+section {
+  padding: 30px 0; /* Top & bottom only — no left/right */
+}
+  
   /* --- About Section --- */
 .profile-label {
   background-color: #ff8a8a;
@@ -325,6 +329,7 @@ box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.8), 0px 6px 12px rgba(0, 0, 0, 0.2
   display: block;
   width: fit-content;
   margin-left: 10%;
+  text-align: left;
 }
 
 .profile-label:hover {
@@ -333,7 +338,7 @@ box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.8), 0px 6px 12px rgba(0, 0, 0, 0.2
 
   .about-section {
     color: #fff;
-    padding: 30px 10%;
+    padding: 30px 0;
     text-align: left;
     font-family: "Poppins", "Segoe UI", sans-serif;
  position: relative;
@@ -506,13 +511,17 @@ box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.8), 0px 6px 12px rgba(0, 0, 0, 0.2
 #gallery::after {
   content: "";
   display: block;
-  margin: 40px auto 0 auto;
-  width: 85%;
+  margin: 50px auto 0 auto;
+  width: 80%;
   height: 4px;
   background-color: #ffffff;
   border-radius: 2px;
 }
 
+#about, #favorites, #gallery, #wishes {
+  scroll-margin-top: 120px; /* adjust only this number if needed */
+}
+  
 </style>
 </head>
 
@@ -729,21 +738,5 @@ window.addEventListener("scroll", () => {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
