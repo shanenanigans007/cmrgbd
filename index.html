@@ -476,7 +476,7 @@ section {
   }
 
   /* --- Favorites Section --- */
-#favorites {  text-align: center;  margin-top: 40px;  color: #fff;   z-index: 2;}
+#favorites {  text-align: center;  margin-top: 20px;  color: #fff;   z-index: 2;}
 
 
 #favorites h2:hover {  background-color: #ff91a4; }
@@ -507,6 +507,20 @@ section {
     border-color: #ff8a8a;
   }
 
+  .fav-item p {
+  margin-top: 10px;
+  font-family: "Playfair Display", "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  text-align: center;
+
+  /* Soft readable glow */
+  text-shadow:
+    2px 2px 4px rgba(0,0,0,0.9),
+    0 0 6px rgba(255, 255, 255, 0.6);
+}
 
 /* --- Gallery Section --- */
 .section-title {
@@ -783,6 +797,7 @@ toggleBtn.addEventListener("click", () => {
   
 </body>
 </html>
+
 
 
 
