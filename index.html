@@ -701,11 +701,6 @@ style="width:100%; height:90px; padding:12px; border-radius:10px; border:none; f
 </section>
 
 
-topAudio.addEventListener("pause", () => {
-  bars.forEach(b => b.style.animationPlayState = "paused");
-});
-</script>
-
 <script>
 const wishName = document.getElementById("wishName");
 const wishInput = document.getElementById("wishInput");
@@ -798,9 +793,23 @@ toggleBtn.addEventListener("click", () => {
   mini.classList.toggle("active");
 });
 </script>
+
+<script>
+const audio = document.getElementById("mainAudio");
+const bars = document.querySelectorAll(".mixer-bar");
+
+audio.addEventListener("play", () => {
+  bars.forEach(b => b.style.animationPlayState = "running");
+});
+
+audio.addEventListener("pause", () => {
+  bars.forEach(b => b.style.animationPlayState = "paused");
+});
+</script>
   
 </body>
 </html>
+
 
 
 
