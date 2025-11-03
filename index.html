@@ -290,16 +290,17 @@ opacity: 0.9;
   font-weight: 600;
   letter-spacing: 0.8px;
 
-  /* ❄️ Frosted Glass Effect */
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(12px);
-  border: 2px solid rgba(255, 255, 255, 0.55);
-  color: #ffffff;
+    /* 💗 FROSTY PINK GLASS BUTTON */
+  background: rgba(255, 182, 193, 0.25); /* soft pink tint */
+  color: #fff;
+  border: 2px solid rgba(255, 184, 200, 0.65);
+  backdrop-filter: blur(14px);
 
   /* Depth & Glow */
-  box-shadow:
-    0px 6px 12px rgba(255, 255, 255, 0.25),
-    inset 0 0 10px rgba(255,255,255,0.35);
+   box-shadow:
+    0 6px 14px rgba(255, 182, 193, 0.45),
+    inset 0 0 12px rgba(255, 255, 255, 0.55),
+    inset 0 -4px 8px rgba(255, 182, 193, 0.55);
 
   transition: 
     transform 0.25s ease,
@@ -328,9 +329,11 @@ opacity: 0.9;
 }
 
 .tabs a:active {
+  /* Press effect */
   transform: translateY(2px);
   box-shadow:
-    0px 4px 10px rgba(255, 255, 255, 0.25) inset;
+    0 3px 6px rgba(255, 182, 193, 0.45),
+    inset 0 0 10px rgba(255, 255, 255, 0.65);
 }
 
 .tabs a:hover::after {
@@ -780,6 +783,7 @@ toggleBtn.addEventListener("click", () => {
   
 </body>
 </html>
+
 
 
 
