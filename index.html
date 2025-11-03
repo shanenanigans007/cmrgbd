@@ -535,6 +535,38 @@ section {
   background-color: #ffffff;
   border-radius: 2px;
 }
+
+  .sub-header-panel {
+  width: 70%;
+  margin: 0 auto 40px auto;
+  background-color: #ff8a8a;
+  border: 2px solid #ffffff;
+  border-radius: 14px;
+  padding: 14px 0;
+  text-align: center;
+  box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.8), 0px 8px 18px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden; /* important for animation */
+}
+
+/* Moving text inside */
+.moving-text {
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  text-shadow:
+    1px 1px 0px #000,
+    2px 2px 0px #000;
+  animation: slideText 3.6s ease-in-out infinite alternate;
+}
+
+/* Smooth left ↔ right animation */
+@keyframes slideText {
+  0%   { transform: translateX(-25px); }
+  100% { transform: translateX(25px); }
+}
  
 </style>
 </head>
@@ -591,7 +623,9 @@ section {
 </div>
 
 <section id="about" class="about-section">
-<h2 class="profile-label section-label">Profile</h2>
+<div class="sub-header-panel">
+  <span class="moving-text">Profile</span>
+</div>
   <div class="about-container">
   <div class="about-photo">
       <img src="cha.png">
@@ -764,6 +798,7 @@ toggleBtn.addEventListener("click", () => {
   
 </body>
 </html>
+
 
 
 
