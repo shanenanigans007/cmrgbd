@@ -53,12 +53,14 @@
 
 .music-fixed-bar {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 10;
+  left: 50%;
   width: 100%;
   display: flex;
   justify-content: center;
+  overflow: visible
   padding: 4px 0;
+  padding-bottom: 40px;
   background: rgba(255, 255, 255, 0.4); /* transparent cute bar */
   backdrop-filter: blur(12px);           /* glossy effect */
   z-index: 9999;                         /* stays above your tabs */
@@ -66,7 +68,7 @@
 }
 
 .music-fixed-bar audio {
-  width: 210px; /* mini size */
+  width: 300px; /* mini size */
   height: 24px;
 }
 
@@ -770,6 +772,7 @@ document.addEventListener("click", () => {
   
 </body>
 </html>
+
 
 
 
