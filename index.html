@@ -239,22 +239,44 @@ opacity: 0.9;
 
 
   /* --- Tabs Navigation --- */
-  .tabs {
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    font-family: "Playfair Display", "Times New Roman", serif;
-    color: #fff;
-    border-bottom: 6px solid #ffffff;
-    padding-bottom: 14px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
+ ✨ Replace it with this:
+.tabs {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: "Playfair Display", "Times New Roman", serif;
+  color: #fff;
+  padding-bottom: 20px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
 
+/* 🌌 Shimmering Purple Galaxy Line */
+.tabs::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 7px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #d6b8ff, #ffffff, #c79bff, #ffffff, #d6b8ff);
+  background-size: 300% 100%;
+  animation: shimmerLine 3s ease-in-out infinite;
+  box-shadow: 0 0 12px rgba(215, 170, 255, 0.9);
+}
+
+@keyframes shimmerLine {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
   .tabs a {
     display: inline-block;
     background-color: #ff8a8a;
@@ -747,6 +769,7 @@ toggleBtn.addEventListener("click", () => {
   
 </body>
 </html>
+
 
 
 
