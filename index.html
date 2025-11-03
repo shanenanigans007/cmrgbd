@@ -230,7 +230,6 @@ opacity: 0.9;
 .balloon:nth-child(9)  { --balloon-color: #d7baff; top: 70%; left: 84%; --x-move: 40px;  --y-move: -66px; --tilt: 9deg; --speed: 4.4s; }
 .balloon:nth-child(10) { --balloon-color: #c1f3db; top: 85%; left: 67%; --x-move: -39px; --y-move: -49px; --tilt: -7deg; --speed: 5.7s; }
 
-
 /* Floating motion (smooth + gentle + faster) */
 @keyframes floatDrift {
   0%   { transform: translate(0px, 0px) rotate(0deg); }
@@ -238,39 +237,6 @@ opacity: 0.9;
   100% { transform: translate(0px, 0px) rotate(0deg); }
 }
 
-  /* --- Mixer bars --- */
-  .mixer {
-    display: flex;
-    justify-content: center;
-    gap: 4px;
-    align-items: flex-end;
-    margin-top: 15px;
-    height: 40px;
-    animation-play-state: paused;
-  }
-
-  .mixer-bar {
-    width: 18px;
-    background: linear-gradient(180deg, rgba(255,80,80,0.95), rgba(255,120,120,0.85));
-    border-radius: 3px;
-    animation: mixerUp 1s infinite;
-    box-shadow: 0 0 8px rgba(255,80,80,0.7);
-  }
-
-  .mixer-bar:nth-child(1) { animation-duration: 0.9s; }
-  .mixer-bar:nth-child(2) { animation-duration: 1.1s; }
-  .mixer-bar:nth-child(3) { animation-duration: 0.8s; }
-  .mixer-bar:nth-child(4) { animation-duration: 1.8s; }
-  .mixer-bar:nth-child(5) { animation-duration: 0.7s; }
-  .mixer-bar:nth-child(6) { animation-duration: 0.6s; }
-  .mixer-bar:nth-child(7) { animation-duration: 1s; }
-  .mixer-bar:nth-child(8) { animation-duration: 1.2s; }
-
-  @keyframes mixerUp {
-    0% { height: 10px; }
-    50% { height: 45px; }
-    100% { height: 10px; }
-  }
 
   /* --- Tabs Navigation --- */
   .tabs {
@@ -615,11 +581,6 @@ section {
     <a href="#wishes">Wishes</a>
   </nav>
 
-<div class="mixer">
-  <div class="mixer-bar"></div><div class="mixer-bar"></div><div class="mixer-bar"></div><div class="mixer-bar"></div>
-  <div class="mixer-bar"></div><div class="mixer-bar"></div><div class="mixer-bar"></div><div class="mixer-bar"></div>
-</div>
-
 </div>
 
 <section id="about" class="about-section">
@@ -793,22 +754,10 @@ toggleBtn.addEventListener("click", () => {
   mini.classList.toggle("active");
 });
 </script>
-
-<script>
-const audio = document.getElementById("mainAudio");
-const bars = document.querySelectorAll(".mixer-bar");
-
-audio.addEventListener("play", () => {
-  bars.forEach(b => b.style.animationPlayState = "running");
-});
-
-audio.addEventListener("pause", () => {
-  bars.forEach(b => b.style.animationPlayState = "paused");
-});
-</script>
   
 </body>
 </html>
+
 
 
 
