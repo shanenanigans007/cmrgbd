@@ -584,12 +584,6 @@ section {
     <a href="#wishes">Wishes</a>
   </nav>
 
-  <div class="music-fixed-bar">
-  <audio id="mainAudio" controls loop>
-    <source src="background.mp3" type="audio/mpeg">
-  </audio>
-</div>
-
 <div class="mixer">
   <div class="mixer-bar"></div><div class="mixer-bar"></div><div class="mixer-bar"></div><div class="mixer-bar"></div>
   <div class="mixer-bar"></div><div class="mixer-bar"></div><div class="mixer-bar"></div><div class="mixer-bar"></div>
@@ -680,8 +674,13 @@ style="width:100%; height:90px; padding:12px; border-radius:10px; border:none; f
 const topAudio = document.querySelector(".music-fixed-bar audio");
 const bars = document.querySelectorAll(".mixer-bar");
 
-topAudio.addEventListener("play", () => bars.forEach(b => b.style.animationPlayState = "running"));
-topAudio.addEventListener("pause", () => bars.forEach(b => b.style.animationPlayState = "paused"));
+topAudio.addEventListener("play", () => {
+  bars.forEach(b => b.style.animationPlayState = "running");
+});
+
+topAudio.addEventListener("pause", () => {
+  bars.forEach(b => b.style.animationPlayState = "paused");
+});
 </script>
 
 <script>
@@ -760,8 +759,18 @@ window.addEventListener("scroll", () => {
   }
 });
 </script>
+
+  <script>
+document.addEventListener("click", () => {
+  const audio = document.querySelector(".music-fixed-bar audio");
+  audio.play();
+}, { once:true });
+</script>
+
+  
 </body>
 </html>
+
 
 
 
