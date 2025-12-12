@@ -538,34 +538,14 @@ section {
     -1px 1px 0px #000;
 }
 
-.gallery-img {
-  width: 180px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 2px;
-  border: none;
-  transition: transform 0.3s ease;
-}
-
-.gallery-img:hover {
-  transform: scale(1.06);
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, auto); /* 3 images side-by-side */
-  gap: 8px; /* smaller spacing */
-  justify-content: center; /* center the whole grid */
-  align-items: center;
-}
-
 .gallery-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 columns */
   grid-template-rows: repeat(2, auto);   /* 2 rows */
   gap: 18px;
   width: 80%;
-  margin: 0 auto;
+  margin: 0 auto; /* centers the grid */
+  justify-items: center; /* center images inside each cell */
 }
 
 .gallery-container img {
@@ -580,11 +560,22 @@ section {
 
 .gallery-container img:hover {
   transform: scale(1.03);
+  box-shadow: 0px 0px 20px #ffbed9;
 }
 
-.gallery-section .gallery-img:hover {
-  transform: scale(1.08);
-  box-shadow: 0px 0px 20px #ffbed9;
+/* --- Optional Responsive Adjustment --- */
+@media (max-width: 900px) {
+  .gallery-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+  }
+}
+
+@media (max-width: 500px) {
+  .gallery-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, auto);
+  }
 }
 
 
@@ -697,7 +688,7 @@ section {
         <li><strong>Birthday:</strong> December 16, 1994</li>
         <li><strong>Age:</strong> 31</li>
         <li><strong>Zodiac Sign:</strong> Sagittarius</li>
-        <li><strong>Chinese Zodiac:</strong> Dog 🐉</li>
+        <li><strong>Chinese Zodiac:</strong> Dog 🐕</li>
         <li><strong>Height:</strong> 153 cm</li>
         <li><strong>Weight:</strong> 50 kg</li>
         <li><strong>MBTI:</strong> ISFJ</li>
@@ -731,16 +722,16 @@ section {
 </section>
 
 <section id="gallery">
-  <h2 class="profile-label section-label">Gallery</h2>C
-  <div class="gallery-grid">
-    <a href="C1.jpg" target="_blank"><img class="gallery-img" src="C1.jpg"></a>
-    <a href="gallery1.jfif" target="_blank"><img class="gallery-img" src="gallery1.jfif"></a>
-    <a href="C5.jpg" target="_blank"><img class="gallery-img" src="C5.jpg"></a>
-    <a href="C2.jpg" target="_blank"><img class="gallery-img" src="C2.jpg"></a>
-    <a href="C4.jpg" target="_blank"><img class="gallery-img" src="C4.jpg"></a>
-    <a href="gallery2.jfif" target="_blank"><img class="gallery-img" src="gallery2.jfif"></a>
-    <a href="C3.jpg" target="_blank"><img class="gallery-img" src="C3.jpg"></a>
-    <a href="gallery3.jfif" target="_blank"><img class="gallery-img" src="gallery3.jfif"></a>
+  <h2 class="profile-label section-label">Gallery</h2>
+  <div class="gallery-container">
+    <a href="C1.jpg" target="_blank"><img src="C1.jpg"></a>
+    <a href="gallery1.jfif" target="_blank"><img src="gallery1.jfif"></a>
+    <a href="C5.jpg" target="_blank"><img src="C5.jpg"></a>
+    <a href="C2.jpg" target="_blank"><img src="C2.jpg"></a>
+    <a href="C4.jpg" target="_blank"><img src="C4.jpg"></a>
+    <a href="gallery2.jfif" target="_blank"><img src="gallery2.jfif"></a>
+    <a href="C3.jpg" target="_blank"><img src="C3.jpg"></a>
+    <a href="gallery3.jfif" target="_blank"><img src="gallery3.jfif"></a>
   </div>
 </section>
 
@@ -872,6 +863,7 @@ toggleBtn.addEventListener("click", () => {
   
 </body>
 </html>
+
 
 
 
