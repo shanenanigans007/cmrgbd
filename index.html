@@ -539,18 +539,18 @@ section {
 }
 
 .gallery-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* each column takes equal fraction */
-  max-width: 1280px; /* 4 × 310px = 1240px + gaps; keeps grid contained */
-  gap: 5px; /* small spacing */
-  margin: 0 auto; /* center grid */
-  justify-items: center;
+  display: inline-grid; /* makes grid width fit its content */
+  grid-template-columns: repeat(4, 310px); /* fixed column width */
+  grid-template-rows: repeat(2, 380px);    /* fixed row height */
+  gap: 5px; /* spacing between images */
+  justify-content: center; /* centers the entire grid */
+  margin: 0 auto; /* center grid in page */
 }
 
 .gallery-container img {
-  width: 100%; /* fills its grid cell */
-  height: 380px; /* uniform height */
-  object-fit: cover;
+  width: 310px;
+  height: 380px;
+  object-fit: cover; /* fills image without distortion */
   border-radius: 8px;
   border: 2px solid rgba(255,255,255,0.8);
   box-shadow: 0 0 6px rgba(255,255,255,0.4);
@@ -862,6 +862,7 @@ toggleBtn.addEventListener("click", () => {
   
 </body>
 </html>
+
 
 
 
