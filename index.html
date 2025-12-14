@@ -740,110 +740,17 @@ section {
     
   </div>
 </section>
+  
+<section id="Wishes">
+  <h2>Memories</h2>
 
-<section id="wishes" style="text-align:left; margin-top:60px; color:white;">
-  <h2 class="profile-label section-label">Wishes</h2>
-  <button id="adminLogin"
-style="margin-bottom:15px; padding:8px 18px; font-size:16px;
-background:rgba(255,255,255,0.25); border:2px solid #fff; border-radius:8px;
-color:white; cursor:pointer;">
-🔒 Login
-</button>
-
-  <div style="margin:20px auto; max-width:600px;">
-
-    <input id="wishName" type="text" placeholder="Your Name..."
-      style="width:100%; padding:12px; border-radius:10px; border:none; font-size:18px; outline:none; margin-bottom:10px;">
-
-   <textarea id="wishInput" placeholder="Write your birthday wish..."
-style="width:100%; height:90px; padding:12px; border-radius:10px; border:none; font-size:18px; outline:none;"></textarea>
-
-    <button id="sendWish" 
-      style="margin-top:12px; padding:10px 25px; background-color:#ff8a8a; border:2px solid #fff; border-radius:8px; color:white; font-size:18px; cursor:pointer;">
-      Send Wish 🎀
-    </button>
+  <div class="gallery">
+    <img src="jo.png" alt="Joanna">
+    <img src="ge.png" alt="Ghe">
+    <img src="dang.png" alt="Diane">
+    <img src="em.png" alt="Emerald">
   </div>
-
-  <ul id="wishList" style="list-style:none; padding:0; margin-top:30px; max-width:600px; margin-left:auto; margin-right:auto; text-align:left;"></ul>
 </section>
-
-
-<script>
-  let isAdmin = false; // will later be changed to true when admin logs in
-  document.getElementById("adminLogin").addEventListener("click", () => {
-  let pwd = prompt("Enter admin password:");
-
-  // CHANGE THIS TO YOUR SECRET PASSWORD
-  if (pwd === "minariri") {
-    isAdmin = true;
-    renderWishes();
-    alert("Admin mode activated. You can now delete wishes.");
-  } else {
-    alert("Incorrect password.");
-  }
-});
-const wishName = document.getElementById("wishName");
-const wishInput = document.getElementById("wishInput");
-const sendWish = document.getElementById("sendWish");
-const wishList = document.getElementById("wishList");
-
-// Load saved wishes
-let wishes = JSON.parse(localStorage.getItem("birthdayWishes")) || [];
-renderWishes();
-
-sendWish.addEventListener("click", () => {
-  const name = wishName.value.trim();
-  const message = wishInput.value.trim();
-
-  if (name === "" || message === "") return;
-
-  wishes.push({ name, message });
-  localStorage.setItem("birthdayWishes", JSON.stringify(wishes));
-
-  wishName.value = "";
-  wishInput.value = "";
-  renderWishes();
-});
-
-function renderWishes() {
-  wishList.innerHTML = "";
-
-  wishes.forEach((entry, index) => {
-    let card = document.createElement("div");
-    card.className = "wish-card";
-
-    card.innerHTML = `
-      <p class="wish-text">${entry.message}</p>
-      <span class="wish-author">— ${entry.name}</span>
-    `;
-
-    // Delete button
-     if (isAdmin) {
-      let delBtn = document.createElement("button");
-      delBtn.textContent = "×";
-      delBtn.style.background = "#ff6b6b";
-      delBtn.style.border = "none";
-      delBtn.style.color = "white";
-      delBtn.style.fontSize = "18px";
-      delBtn.style.padding = "4px 10px";
-      delBtn.style.borderRadius = "6px";
-      delBtn.style.cursor = "pointer";
-      delBtn.style.float = "right";
-      delBtn.style.marginLeft = "10px";
-
-      delBtn.addEventListener("click", () => {
-        wishes.splice(index, 1);
-        localStorage.setItem("birthdayWishes", JSON.stringify(wishes));
-        renderWishes();
-      });
-
-       card.appendChild(delBtn);
-    }
-
-    wishList.appendChild(card);
-  });
-}
-</script>
 
   <script>
 window.addEventListener("scroll", () => {
@@ -869,65 +776,3 @@ toggleBtn.addEventListener("click", () => {
   
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
